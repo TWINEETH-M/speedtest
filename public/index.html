@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Speed Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title">&#9889; SPEED TEST</h1>
+      <p class="subtitle">Measure your internet speed in real-time</p>
+    </header>
+
+    <div class="gauge-container">
+      <svg class="gauge" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#7b2ff7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <path class="gauge-bg" d="M 30 180 A 120 120 0 0 1 270 180" fill="none" stroke="#1a1a3e" stroke-width="18" stroke-linecap="round"/>
+        <path id="gaugeArc" class="gauge-fill" d="M 30 180 A 120 120 0 0 1 270 180" fill="none" stroke="url(#gaugeGradient)" stroke-width="18" stroke-linecap="round" stroke-dasharray="0 377" filter="url(#glow)"/>
+        <text x="25" y="198" fill="#ffffff50" font-size="10" font-family="Orbitron">0</text>
+        <text x="40" y="125" fill="#ffffff50" font-size="10" font-family="Orbitron">20</text>
+        <text x="90" y="72" fill="#ffffff50" font-size="10" font-family="Orbitron">40</text>
+        <text x="142" y="55" fill="#ffffff50" font-size="10" font-family="Orbitron">60</text>
+        <text x="195" y="72" fill="#ffffff50" font-size="10" font-family="Orbitron">80</text>
+        <text x="245" y="125" fill="#ffffff50" font-size="10" font-family="Orbitron">100</text>
+      </svg>
+      <div class="speed-display">
+        <span id="speedValue" class="speed-value">0</span>
+        <span class="speed-unit">Mbps</span>
+      </div>
+      <div id="testPhase" class="test-phase idle">Press START to begin</div>
+    </div>
+
+    <button id="startBtn" class="start-btn" onclick="startTest()">
+      <span class="btn-text">START TEST</span>
+      <span class="btn-glow"></span>
+    </button>
+
+    <div class="results-grid">
+      <div class="result-card" id="pingCard">
+        <div class="result-icon">&#127760;</div>
+        <div class="result-label">PING</div>
+        <div class="result-value" id="pingResult">--</div>
+        <div class="result-unit">ms</div>
+      </div>
+      <div class="result-card" id="downloadCard">
+        <div class="result-icon">&#11015;&#65039;</div>
+        <div class="result-label">DOWNLOAD</div>
+        <div class="result-value" id="downloadResult">--</div>
+        <div class="result-unit">Mbps</div>
+      </div>
+      <div class="result-card" id="uploadCard">
+        <div class="result-icon">&#11014;&#65039;</div>
+        <div class="result-label">UPLOAD</div>
+        <div class="result-value" id="uploadResult">--</div>
+        <div class="result-unit">Mbps</div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Built with &#10084;&#65039; | Real-time Internet Speed Test</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
