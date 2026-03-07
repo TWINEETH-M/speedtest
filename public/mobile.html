@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Phone Specifications</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-bar">
+      <a href="/" class="nav-link">&#9889; Speed Test</a>
+      <a href="/mobile.html" class="nav-link active">&#128241; Phone Specs</a>
+    </nav>
+
+    <header>
+      <h1 class="title">&#128241; MOBILE SPECS</h1>
+      <p class="subtitle">Enter a phone name to find its full specifications</p>
+    </header>
+
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="phoneSearch" placeholder="e.g. Samsung Galaxy S24, iPhone 15 Pro..." autocomplete="off">
+        <button id="searchBtn">
+          <span class="search-icon">&#128269;</span>
+          <span>SEARCH</span>
+        </button>
+      </div>
+      <a id="googleLink" class="google-link" href="#" target="_blank" rel="noopener noreferrer">
+        &#127760; Search on Google
+      </a>
+    </div>
+
+    <!-- Spec Categories (shown before search) -->
+    <div id="categoryGrid" class="category-grid">
+      <div class="category-card">
+        <div class="category-icon">&#128241;</div>
+        <div class="category-name">Display</div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon">&#9889;</div>
+        <div class="category-name">Battery</div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon">&#128247;</div>
+        <div class="category-name">Camera</div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon">&#129504;</div>
+        <div class="category-name">Processor</div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon">&#128190;</div>
+        <div class="category-name">Storage</div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon">&#128246;</div>
+        <div class="category-name">Network</div>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>Searching for specifications...</p>
+    </div>
+
+    <!-- Search Results List -->
+    <div id="searchResults" class="search-results" style="display: none;"></div>
+
+    <!-- Phone Details -->
+    <div id="phoneDetails" class="phone-details" style="display: none;"></div>
+
+    <footer>
+      <p>Built with &#10084;&#65039; | Mobile Phone Specifications Finder</p>
+    </footer>
+  </div>
+  <script src="mobile.js"></script>
+</body>
+</html>
